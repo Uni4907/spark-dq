@@ -1,0 +1,359 @@
+{
+  "ok": true,
+  "stages": {
+    "baseline": {
+      "taskId": "6e4cae82-c82d-4ce9-83ee-d88ef1253394",
+      "rows": 45211,
+      "rules": {
+        "DUPLICATE": {
+          "metrics": {
+            "duplicateGroups": 0,
+            "duplicateRows": 0,
+            "excessRows": 0
+          },
+          "fullAnomalyRows": 0,
+          "completeMultisetSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "FD": {
+          "metrics": {
+            "algorithmVersion": "fd-exact-text-skip-blank-v1",
+            "status": "EVALUATED",
+            "checkedCount": 45211,
+            "skippedCount": 0,
+            "skippedBlankCount": 0,
+            "skippedNullCount": 0,
+            "skippedEmptyCount": 0,
+            "skippedWhitespaceCount": 0,
+            "checkedGroups": 12,
+            "conflictGroups": 0,
+            "conflictRows": 0,
+            "invalidCount": 0
+          },
+          "fullAnomalyRows": 0,
+          "completeMultisetSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "IQR": {
+          "metrics": {
+            "algorithmVersion": "iqr-exact-decimal-linear-v1",
+            "status": "EVALUATED",
+            "numericDomain": "DECIMAL_28_10_NO_EXPONENT_NO_TRIM",
+            "minimumValidCount": 4,
+            "k": "1.5",
+            "checkedCount": 45211,
+            "evaluatedCount": 45211,
+            "skippedCount": 0,
+            "skippedBlankCount": 0,
+            "nonNumericCount": 0,
+            "q1": "33",
+            "q3": "48",
+            "iqr": "15",
+            "lowerBound": "10.5",
+            "upperBound": "70.5",
+            "outOfDomainCount": 0,
+            "invalidCount": 487
+          },
+          "fullAnomalyRows": 487,
+          "completeMultisetSha256": "30494e04f1a95a468882feabdf5e425d14acd6fd8e8e46a95c2bb6c10c5137de"
+        },
+        "MISSING": {
+          "metrics": {
+            "nullCount": 0,
+            "emptyCount": 0,
+            "whitespaceCount": 0,
+            "blankCount": 0
+          },
+          "fullAnomalyRows": 0,
+          "completeMultisetSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "injected": {
+      "taskId": "dc19df31-4143-48f4-99e1-3d6a17f8abd9",
+      "rows": 45231,
+      "rules": {
+        "DUPLICATE": {
+          "metrics": {
+            "duplicateGroups": 20,
+            "duplicateRows": 40,
+            "excessRows": 20
+          },
+          "fullAnomalyRows": 40,
+          "completeMultisetSha256": "d40c769ff8e4f98031f7313254f966364d34835cbbe7f891686fd7a4984da2b8"
+        },
+        "FD": {
+          "metrics": {
+            "algorithmVersion": "fd-exact-text-skip-blank-v1",
+            "status": "EVALUATED",
+            "checkedCount": 45231,
+            "skippedCount": 0,
+            "skippedBlankCount": 0,
+            "skippedNullCount": 0,
+            "skippedEmptyCount": 0,
+            "skippedWhitespaceCount": 0,
+            "checkedGroups": 12,
+            "conflictGroups": 12,
+            "conflictRows": 45231,
+            "invalidCount": 45231
+          },
+          "fullAnomalyRows": 45231,
+          "completeMultisetSha256": "c0ced540eed5aeafb2fb863c6b7bae1a9d459a338b2e756b4df1881e8c6c34bd"
+        },
+        "IQR": {
+          "metrics": {
+            "algorithmVersion": "iqr-exact-decimal-linear-v1",
+            "status": "EVALUATED",
+            "numericDomain": "DECIMAL_28_10_NO_EXPONENT_NO_TRIM",
+            "minimumValidCount": 4,
+            "k": "1.5",
+            "checkedCount": 45171,
+            "evaluatedCount": 45171,
+            "skippedCount": 60,
+            "skippedBlankCount": 60,
+            "nonNumericCount": 0,
+            "q1": "33",
+            "q3": "48",
+            "iqr": "15",
+            "lowerBound": "10.5",
+            "upperBound": "70.5",
+            "outOfDomainCount": 0,
+            "invalidCount": 527
+          },
+          "fullAnomalyRows": 527,
+          "completeMultisetSha256": "02a875066f3ea0760518f085a36ebcd09af3d4810f045c653b18a78fec83dfc1"
+        },
+        "MISSING": {
+          "metrics": {
+            "nullCount": 20,
+            "emptyCount": 20,
+            "whitespaceCount": 20,
+            "blankCount": 60
+          },
+          "fullAnomalyRows": 60,
+          "completeMultisetSha256": "51ceeef3a45da84f31e9072a1dbaf741037c41801a29df586375d943c0338ce4"
+        }
+      }
+    },
+    "governance": {
+      "taskId": "2bb8f1cf-48a9-444a-aae2-94d2e0dc1a7b",
+      "datasetId": "f3e03c8c-7e08-4f59-a2ed-f1545c91e74d",
+      "rows": 45211,
+      "rules": {
+        "DUPLICATE": {
+          "metrics": {
+            "duplicateGroups": 0,
+            "duplicateRows": 0,
+            "excessRows": 0
+          },
+          "fullAnomalyRows": 0,
+          "completeMultisetSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "FD": {
+          "metrics": {
+            "algorithmVersion": "fd-exact-text-skip-blank-v1",
+            "status": "EVALUATED",
+            "checkedCount": 45211,
+            "skippedCount": 0,
+            "skippedBlankCount": 0,
+            "skippedNullCount": 0,
+            "skippedEmptyCount": 0,
+            "skippedWhitespaceCount": 0,
+            "checkedGroups": 12,
+            "conflictGroups": 12,
+            "conflictRows": 45211,
+            "invalidCount": 45211
+          },
+          "fullAnomalyRows": 45211,
+          "completeMultisetSha256": "77079670b34ad4bf207d246ed126f1c6dc3d8f1bae4ebe66a95c909602ed66cb"
+        },
+        "IQR": {
+          "metrics": {
+            "algorithmVersion": "iqr-exact-decimal-linear-v1",
+            "status": "EVALUATED",
+            "numericDomain": "DECIMAL_28_10_NO_EXPONENT_NO_TRIM",
+            "minimumValidCount": 4,
+            "k": "1.5",
+            "checkedCount": 45211,
+            "evaluatedCount": 45211,
+            "skippedCount": 0,
+            "skippedBlankCount": 0,
+            "nonNumericCount": 0,
+            "q1": "33",
+            "q3": "48",
+            "iqr": "15",
+            "lowerBound": "10.5",
+            "upperBound": "70.5",
+            "outOfDomainCount": 0,
+            "invalidCount": 527
+          },
+          "fullAnomalyRows": 527,
+          "completeMultisetSha256": "02a875066f3ea0760518f085a36ebcd09af3d4810f045c653b18a78fec83dfc1"
+        },
+        "MISSING": {
+          "metrics": {
+            "nullCount": 0,
+            "emptyCount": 0,
+            "whitespaceCount": 0,
+            "blankCount": 0
+          },
+          "fullAnomalyRows": 0,
+          "completeMultisetSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "recheck": {
+      "taskId": "edd3d967-6881-41e5-8757-6f22294129c6",
+      "rows": 45211,
+      "rules": {
+        "DUPLICATE": {
+          "metrics": {
+            "duplicateGroups": 0,
+            "duplicateRows": 0,
+            "excessRows": 0
+          },
+          "fullAnomalyRows": 0,
+          "completeMultisetSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "FD": {
+          "metrics": {
+            "algorithmVersion": "fd-exact-text-skip-blank-v1",
+            "status": "EVALUATED",
+            "checkedCount": 45211,
+            "skippedCount": 0,
+            "skippedBlankCount": 0,
+            "skippedNullCount": 0,
+            "skippedEmptyCount": 0,
+            "skippedWhitespaceCount": 0,
+            "checkedGroups": 12,
+            "conflictGroups": 12,
+            "conflictRows": 45211,
+            "invalidCount": 45211
+          },
+          "fullAnomalyRows": 45211,
+          "completeMultisetSha256": "77079670b34ad4bf207d246ed126f1c6dc3d8f1bae4ebe66a95c909602ed66cb"
+        },
+        "IQR": {
+          "metrics": {
+            "algorithmVersion": "iqr-exact-decimal-linear-v1",
+            "status": "EVALUATED",
+            "numericDomain": "DECIMAL_28_10_NO_EXPONENT_NO_TRIM",
+            "minimumValidCount": 4,
+            "k": "1.5",
+            "checkedCount": 45211,
+            "evaluatedCount": 45211,
+            "skippedCount": 0,
+            "skippedBlankCount": 0,
+            "nonNumericCount": 0,
+            "q1": "33",
+            "q3": "48",
+            "iqr": "15",
+            "lowerBound": "10.5",
+            "upperBound": "70.5",
+            "outOfDomainCount": 0,
+            "invalidCount": 527
+          },
+          "fullAnomalyRows": 527,
+          "completeMultisetSha256": "02a875066f3ea0760518f085a36ebcd09af3d4810f045c653b18a78fec83dfc1"
+        },
+        "MISSING": {
+          "metrics": {
+            "nullCount": 0,
+            "emptyCount": 0,
+            "whitespaceCount": 0,
+            "blankCount": 0
+          },
+          "fullAnomalyRows": 0,
+          "completeMultisetSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    }
+  },
+  "effect": {
+    "MISSING_modified_row_targets": {
+      "tp": 60,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "predictedRows": 60,
+      "labelRows": 60
+    },
+    "IQR_modified_row_targets": {
+      "tp": 40,
+      "fp": 487,
+      "fn": 0,
+      "precision": 0.07590132827324478,
+      "recall": 1.0,
+      "f1": 0.14109347442680775,
+      "predictedRows": 527,
+      "labelRows": 40
+    },
+    "FD_modified_row_targets": {
+      "tp": 24,
+      "fp": 45207,
+      "fn": 0,
+      "precision": 0.0005306095377064403,
+      "recall": 1.0,
+      "f1": 0.0010606562810739145,
+      "predictedRows": 45231,
+      "labelRows": 24
+    },
+    "FD_rule_participant_targets": {
+      "tp": 45231,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "predictedRows": 45231,
+      "labelRows": 45231
+    },
+    "DUPLICATE_rule_participant_targets": {
+      "tp": 40,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "predictedRows": 40,
+      "labelRows": 40
+    },
+    "DUPLICATE_inserted_row_targets": {
+      "tp": 20,
+      "fp": 20,
+      "fn": 0,
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.6666666666666666,
+      "predictedRows": 40,
+      "labelRows": 20
+    },
+    "definitions": "Unit is row occurrence (Counter per stable row_id), exact multiplicity. For copies, insertion labels count1 versus participant labels count2. FP means non-injected according to controlled labels; NOT established real business errors. FD participant truth is independently computed configured rule truth, not an error-source label."
+  },
+  "candidate": {
+    "backendImage": "spark-dq-backend:t8-controlled-220403",
+    "backendImageId": "sha256:47960a231416a90db9bf9a18ef6c1fbe4de6244651db0065bfd8df92f5d95039",
+    "frontendImage": "spark-dq-frontend:t8-controlled-220424",
+    "frontendImageId": "sha256:d59cec736da429ddc1e4f9cbc709c73dba8973c36558de7f9c6347ac5281d0ed",
+    "engineJarSha256": "f4006c52ef1689db7fde83deb9a9f3f673434b95b5803357f7ef636ad8819633",
+    "java": {
+      "backend": {
+        "tests": 162,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "spark-engine": {
+        "tests": 43,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    }
+  },
+  "publicDataDirectory": "/home/sparkdq/projects/spark-dq/.runtime/t9-public-20261021-221233",
+  "allCompleteMetricsAndMultisets": true,
+  "originalSnapshotUnchanged": true,
+  "peakPythonResidentKiB": 303500,
+  "scope": "Public real covariates with explicit artificial quality injections; functional local product experiment, not a performance comparison"
+}

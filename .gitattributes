@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+
+# Preserve CRLF inside quoted demo fields as well as record separators.
+demo/*.csv -text whitespace=cr-at-eol

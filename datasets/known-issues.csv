@@ -1,0 +1,8 @@
+id,name,email,region
+1,Alice,a@example.test,east
+2,Bob,,west
+2,Bob,,west
+3,\N,c@example.test,east
+4,"",d@example.test,north
+5,"   ",e@example.test,north
+6,Frank,f@example.test,south

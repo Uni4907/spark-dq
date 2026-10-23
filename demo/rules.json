@@ -1,0 +1,37 @@
+{
+  "name": "毕业设计固定演示规则",
+  "rules": [
+    {
+      "type": "MISSING",
+      "columns": [
+        "note"
+      ]
+    },
+    {
+      "type": "DUPLICATE",
+      "columns": [
+        "id"
+      ]
+    },
+    {
+      "type": "IQR",
+      "columns": [
+        "amount"
+      ],
+      "params": {
+        "k": "1.5"
+      }
+    },
+    {
+      "type": "FD",
+      "columns": [
+        "code"
+      ],
+      "params": {
+        "dependentColumns": [
+          "category"
+        ]
+      }
+    }
+  ]
+}

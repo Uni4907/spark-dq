@@ -1,0 +1,14 @@
+stateDiagram-v2
+ [*] --> QUEUED
+ QUEUED --> RUNNING: 开始执行
+ QUEUED --> CANCELLED: 取消排队
+ RUNNING --> SUCCEEDED: 行锁保护下发布完整结果
+ RUNNING --> FAILED: 错误或超时并清理
+ RUNNING --> CANCELLING: 请求取消
+ CANCELLING --> CANCELLED: 子进程及远端资源确认清理
+ QUEUED --> FAILED: 本地服务重启中断
+ RUNNING --> FAILED: 重启后完成资源核对
+ note right of CANCELLING
+ 远端不可观察时保留处理中
+ 阻止新任务，等待清理证据
+ end note

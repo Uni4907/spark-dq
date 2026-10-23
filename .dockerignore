@@ -1,0 +1,13 @@
+.git
+.env
+.runtime
+**/node_modules
+**/dist
+**/__pycache__
+.env*
+*.log
+*.tar
+*.gpg
+docs
+datasets
+tests

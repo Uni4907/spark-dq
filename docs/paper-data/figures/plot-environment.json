@@ -1,0 +1,29 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "matplotlib": "3.10.7",
+  "numpy": "2.5.4",
+  "font": "C:\\Windows\\Fonts\\msyh.ttc",
+  "figures": [
+    "01-T4\u5386\u53f2\u89c4\u6a21\u8017\u65f6.png",
+    "01-T4\u5386\u53f2\u89c4\u6a21\u8017\u65f6.svg",
+    "01-T4\u5386\u53f2\u89c4\u6a21\u8017\u65f6.pdf",
+    "02-T4\u5386\u53f2\u8d44\u6e90\u91c7\u6837.png",
+    "02-T4\u5386\u53f2\u8d44\u6e90\u91c7\u6837.svg",
+    "02-T4\u5386\u53f2\u8d44\u6e90\u91c7\u6837.pdf",
+    "03-T9\u6ce8\u5165\u6807\u7b7e\u6548\u679c.png",
+    "03-T9\u6ce8\u5165\u6807\u7b7e\u6548\u679c.svg",
+    "03-T9\u6ce8\u5165\u6807\u7b7e\u6548\u679c.pdf",
+    "04-T9\u6cbb\u7406\u4e0e\u72ec\u7acb\u590d\u68c0.png",
+    "04-T9\u6cbb\u7406\u4e0e\u72ec\u7acb\u590d\u68c0.svg",
+    "04-T9\u6cbb\u7406\u4e0e\u72ec\u7acb\u590d\u68c0.pdf"
+  ],
+  "inputs": {
+    "t4-environment.json": "7767a588cb96f49f357088ce15bc8155ffc7f7c572dc8a2a4e0651e50241bccb",
+    "t4-scale.json": "f64cecd266056a38b6b9a5c183eb560edc735bbe4623618ba07212c0d3775f04",
+    "t5-effects.json": "74df6cae9bd34600376a67cdaf2bbfa0544d803649c5aca422daedd101957ce7",
+    "t5-environment.json": "67ddb9c0c187378cd5bb0327cee1cc72eed0259fbade30155b971c310a2346b7",
+    "t9-data-card.json": "31338defecdc328a1b6611ab7c53429ca65534638682f32a41dc28d005a98370",
+    "t9-effect.json": "3747fdf355dd2ee5a6695a7ffc4cb2a1273f54c5975dd9d305f3d7bd521f140c",
+    "t9-summary.json": "5a928967d87a09730d1b4698ff95d8b3bbecd0f798075eb77b43d7f891a44e25"
+  }
+}

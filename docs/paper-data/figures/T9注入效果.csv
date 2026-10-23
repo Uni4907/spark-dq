@@ -1,0 +1,7 @@
+﻿target,tp,fp,fn,precision,recall,f1,predictedRows,labelRows
+MISSING_modified_row_targets,60,0,0,1.0,1.0,1.0,60,60
+IQR_modified_row_targets,40,487,0,0.07590132827324478,1.0,0.14109347442680775,527,40
+FD_modified_row_targets,24,45207,0,0.0005306095377064403,1.0,0.0010606562810739145,45231,24
+FD_rule_participant_targets,45231,0,0,1.0,1.0,1.0,45231,45231
+DUPLICATE_inserted_row_targets,20,20,0,0.5,1.0,0.6666666666666666,40,20
+DUPLICATE_rule_participant_targets,40,0,0,1.0,1.0,1.0,40,40

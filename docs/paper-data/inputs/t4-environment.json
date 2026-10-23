@@ -1,0 +1,32 @@
+{
+  "jarSha256": "d9aeac665320d1158eb830ff8a3eaddb4c8594ebddfa97a78b9dc9329495b1a6",
+  "sparkImage": "apache/spark@sha256:8cd61978c71aafcd61ac37fcdbbca2ad774396407c9498c79a2afdfc57142783",
+  "sparkVersion": "3.5.8",
+  "scala": "2.12",
+  "java": 17,
+  "inputPartitions": 8,
+  "shufflePartitions": 2,
+  "heapMiB": {
+    "localDriver": 2560,
+    "clusterDriver": 1024,
+    "eachExecutor": 768
+  },
+  "cpuQuotas": {
+    "local": 2,
+    "clusterDriver": 0.5,
+    "eachWorker": 0.75,
+    "masterAdditional": 0.5
+  },
+  "memoryQuotasMiB": {
+    "local": 5120,
+    "clusterDriver": 2048,
+    "eachWorker": 1536,
+    "masterAdditional": 512
+  },
+  "singleRunSeconds": 300,
+  "batchSeconds": 2700,
+  "availableMemoryBytes": 11740909568,
+  "sampleIntervalSeconds": 0.25,
+  "localSamplingScope": "Driver only; idle cluster daemons coexist and are excluded. Cluster sampling includes Driver, Master and both Workers. Extra deployment overhead is explicit.",
+  "retention": "Full input, anomalies, externally sorted multisets, SQLite oracle, event logs, failures, containers and networks retained"
+}

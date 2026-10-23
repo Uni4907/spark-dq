@@ -1,0 +1,63 @@
+{
+  "MISSING_modified_row_targets": {
+    "tp": 60,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "predictedRows": 60,
+    "labelRows": 60
+  },
+  "IQR_modified_row_targets": {
+    "tp": 40,
+    "fp": 487,
+    "fn": 0,
+    "precision": 0.07590132827324478,
+    "recall": 1.0,
+    "f1": 0.14109347442680775,
+    "predictedRows": 527,
+    "labelRows": 40
+  },
+  "FD_modified_row_targets": {
+    "tp": 24,
+    "fp": 45207,
+    "fn": 0,
+    "precision": 0.0005306095377064403,
+    "recall": 1.0,
+    "f1": 0.0010606562810739145,
+    "predictedRows": 45231,
+    "labelRows": 24
+  },
+  "FD_rule_participant_targets": {
+    "tp": 45231,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "predictedRows": 45231,
+    "labelRows": 45231
+  },
+  "DUPLICATE_rule_participant_targets": {
+    "tp": 40,
+    "fp": 0,
+    "fn": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "predictedRows": 40,
+    "labelRows": 40
+  },
+  "DUPLICATE_inserted_row_targets": {
+    "tp": 20,
+    "fp": 20,
+    "fn": 0,
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1": 0.6666666666666666,
+    "predictedRows": 40,
+    "labelRows": 20
+  },
+  "definitions": "Unit is row occurrence (Counter per stable row_id), exact multiplicity. For copies, insertion labels count1 versus participant labels count2. FP means non-injected according to controlled labels; NOT established real business errors. FD participant truth is independently computed configured rule truth, not an error-source label."
+}

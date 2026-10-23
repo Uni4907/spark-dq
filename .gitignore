@@ -1,0 +1,21 @@
+.env
+.runtime/
+**/target/
+**/node_modules/
+**/dist/
+*.log
+.idea/
+.DS_Store
+
+__pycache__/
+*.pyc
+*.tar
+*.tar.gz
+*.gpg
+.env.*
+!.env.example
+
+# Only deliberately reviewed synthetic samples belong in Git.
+datasets/*
+!datasets/known-issues.csv
+!datasets/README.md

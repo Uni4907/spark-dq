@@ -1,0 +1,21 @@
+CREATE TABLE dataset_imports (
+ id CHAR(36) PRIMARY KEY,
+ request_key CHAR(36) NOT NULL UNIQUE,
+ name VARCHAR(200) NOT NULL,
+ source_sha256 CHAR(64) NOT NULL,
+ source_bytes BIGINT NOT NULL,
+ contract_version INT NOT NULL DEFAULT 1,
+ status VARCHAR(16) NOT NULL,
+ dataset_id CHAR(36) NULL,
+ manifest_sha256 CHAR(64) NULL,
+ parent_import_id CHAR(36) NULL,
+ error TEXT NULL,
+ duration_ms BIGINT NULL,
+ created_at TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+ started_at TIMESTAMP(3) NULL,
+ finished_at TIMESTAMP(3) NULL,
+ CONSTRAINT fk_import_dataset FOREIGN KEY(dataset_id) REFERENCES datasets(id),
+ CONSTRAINT fk_import_parent FOREIGN KEY(parent_import_id) REFERENCES dataset_imports(id),
+ INDEX ix_import_created(created_at,id),
+ INDEX ix_import_status(status)
+);

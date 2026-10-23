@@ -1,0 +1,96 @@
+# 2026-10-19 执行副本接入开发日志
+
+# SparkDQ 当前完整进度交付
+
+截至 2026-10-19T20:38:43+08:00，本阶段已把离线分片CSV/Parquet能力接入网页和真实任务生命周期，并升级主环境至数据库V3。当前页面：http://localhost:15173/ 。
+
+## 当前系统能力
+
+| 范围 | 已完成能力 |
+| --- | --- |
+| 完整闭环 | CSV上传→规则配置/版本化模板→Java/Spark检测→显式治理→独立版本与快照→读取实际文件复检→前后比较与JSON报告 |
+| 检测 | 空值/空字符串/纯空格细分、业务键重复、整数/精确数值/日期、范围、正则、完整异常记录与预览 |
+| 治理 | 文本标准化、v3精确非连锁映射、常量填充、缺失移除、v4业务数值/日期/文本多级去重、逐项审计 |
+| 本阶段输入 | 默认原CSV；可选分片CSV或Parquet执行副本，服务端准备、源/清单/各分片SHA验证，冻结输入配置并沿用至治理/复检 |
+| 可靠性 | 持久化状态、排队/运行取消、子进程清理、失败/超时/重启恢复、历史分页；准备与检测共享300秒worker预算 |
+| 运维 | 有限后台会话、空闲维护准入、数据库+文件+实际应用一致备份、逐文件校验、新卷隔离恢复、容量巡检、迁移失败保护 |
+| 历史实验 | 1万/5万/20万行单机基准；此前24次正式格式对照等原始证据保留，未用小样本推导集群性能 |
+
+核心仍为Java17/Spring Boot、Java/Spark3.5.8、Vue3、MySQL8.4，运行于WSL2/Docker。Python用于验收驱动、备份/恢复、运行会话与实验工具；在线检测、治理、副本准备均由Java执行。
+
+## 本阶段具体交付
+
+1. 页面增加“检测输入方式”，可选原CSV、分片CSV、Parquet。原CSV作为版本与下载基准保留；副本配置在提交时冻结，复检可继承或显式重置为原CSV。
+2. V3只向task_snapshots增加执行计划和清单SHA列。旧任务不补造副本，旧接口/报告原JSON结构保持兼容。
+3. 服务端验证副本的源指纹、字段、行数、路径、大小和逐文件SHA；清单指纹只绑定一次。Spark再次校验并读取，损坏失败时不发布成功指标或治理版本。
+4. 准备和检测共用预算、取消和重启恢复；备份覆盖已绑定副本，包括失败任务诊断工件。损坏会阻止“完整备份”通过。
+
+## 实际验证结果
+
+| 验证 | 结果与范围 |
+| --- | --- |
+| Java | 74项，失败0、错误0、跳过0，Maven package成功 |
+| Python | 66项unittest通过；属于测试/运维工具验证 |
+| 新API流程 | 隔离候选8任务、主环境8任务均通过：原CSV对照、两种副本检测/治理/新CSV版本/复检/重置；错误配置拒绝且不排队 |
+| 生命周期 | 隔离恢复克隆中实际排队取消、准备取消、损坏失败及复检、准备时服务崩溃恢复及复检，共6项通过；最终恢复字节读回核验通过 |
+| 既有回归 | MVP实际Spark任务、既有v4保留策略21任务、csv-v1复检及不支持副本的409拒绝通过；6份旧任务/报告JSON与升级前一致 |
+| 备份恢复 | V3完整备份→三块全新卷恢复→真实Parquet复检通过；V2应用连接V3被迁移保护拒绝，恢复V3后可继续运行 |
+| 页面与主环境 | 候选/主页面各真实提交1项Parquet任务完成；主环境一致备份、同容器重启后8任务夹具及页面任务保持一致，巡检通过、维护已关闭 |
+
+主环境本阶段从213数据集/269任务到216数据集/278任务：新增1组合成上传、2个治理版本和9个成功任务；升级时既有业务行、原文件和环境配置校验不变。当前表计数：216数据集、278任务。历史失败/取消仍保留，不把它们描述为本阶段新增故障。
+
+页面验收任务：`ae75c866-a2e6-4be2-a916-4c6e3ed145f8`，6行、7规则、Parquet、17.43秒；id重复2组/涉及4行/多余2行，name缺失1+空字符串1+纯空格1。执行记录与快照清单SHA一致。
+
+## 真实修复与验收过程
+
+验收初版的Docker写入工具遗漏stdin参数，隔离合成损坏夹具没有正确恢复；新备份巡检实际发现分片不一致并拒绝备份。随后仅从SHA完全匹配的合成工件恢复该测试分片，修复工具并增加写后字节读回断言，重跑生命周期和备份/恢复成功。另修复克隆重启动态端口变化导致验收仍连接旧端口的问题。失败日志和修复证据保留；没有在主环境注入损坏或覆盖用户文件。
+
+## 可查阅位置与复现
+
+真实仓库：`/home/sparkdq/projects/spark-dq`（WSL发行版SparkDQ-Ubuntu）。新增接口与限制见`docs/execution-inputs.md`，逐项文件改动见本阶段开发日志。测试均有限超时、非交互执行。
+
+```bash
+timeout 150s python3 -m unittest discover -s tests -p 'test_*.py' -v
+timeout 900s python3 tests/execution_inputs.py --base http://127.0.0.1:18080/api
+timeout 90s python3 tests/execution_inputs.py --base http://127.0.0.1:18080/api --check /home/sparkdq/projects/spark-dq/.runtime/execution-fixture-32f039fd73e2.json
+```
+
+首次API验收会新增唯一合成数据/任务；`--check`只读。破坏性生命周期验收脚本明确拒绝主项目，只允许指定恢复克隆。Java构建与镜像构建日志一起保存在交付证据中。
+
+私有备份（未向交付ZIP导出SQL、用户文件或环境配置）：
+
+- 升级前V2：`.runtime/execution-deploy-0d93667c886f/backup`
+- 升级后主环境V3：`.runtime/execution-main-persist-c9ff762b484f/backup`
+- 新卷隔离恢复证据：`.runtime/execution-8fc7cfd2f3c2/regression-verified.json`
+- 主环境重启证据：`.runtime/execution-main-persist-c9ff762b484f/verified.json`
+
+旧V2应用不能直接运行V3库；如需恢复，先在新卷恢复升级前一致备份核验，再决定切换，不允许删列/清迁移或覆盖现有卷。本阶段未远程推送或对外发布，隔离候选与恢复服务已停止，数据和诊断保留。
+
+## 当前限制与下一阶段
+
+网页上传仍限单文件CSV、20MiB、100列。副本是受控服务端执行工件，不等于原生Parquet上传或用户任意多文件注册。当前local[2]、单后端串行队列，没有集群/TB级验证、缓存复用/自动清理、完整账号权限/多租户或PDF/Word质量报告。副本增加准备和存储成本，本阶段不宣称提速；既有格式实验中Parquet更省空间但含准备的一次运行更慢。日期去重优先级仅YYYY-MM-DD；前端仍Vite preview，既有ECharts告警本阶段未升级。同机备份不等于异机灾备。
+
+下一阶段优先做原生格式受控注册与容量约束、格式/版本引用的统一验证，再做更大样本与共享存储/集群提交。论文/答辩可复现材料继续沿用真实日志和实验，不虚构“海量”吞吐。
+
+用户回来无需配置或认证，可直接打开页面查看上述任务。当前后台会话北京时间2026-10-19 21:45:10到期（排空规则下最迟22:35:10），届时保留容器和数据；不是永久开机自启。运行管理入口沿用`SparkDQ-runtime.ps1`。
+
+## 改动文件
+
+```text
+ M README.md
+ M backend/src/main/java/cn/sparkdq/Tasks.java
+ M docs/prepared-inputs.md
+ M docs/roadmap.md
+ M frontend/src/App.vue
+ M infrastructure/storage.py
+?? backend/src/main/java/cn/sparkdq/ExecutionInputs.java
+?? backend/src/main/resources/db/migration/V3__execution_input_snapshots.sql
+?? backend/src/test/java/cn/sparkdq/ExecutionInputsTest.java
+?? docs/execution-inputs.md
+?? docs/progress-delivery-execution-inputs-2026-10-19.md
+?? tests/execution_inputs.py
+?? tests/execution_lifecycle.py
+?? tests/test_execution_storage.py
+```
+
+ExecutionInputs.java负责严格计划解析、冻结和指纹/路径校验；Tasks.java接入共享预算和生命周期；V3迁移增加两列；App.vue提供选择和结果标识；storage.py绑定数据库与归档清单。新增Java测试和三份Python验收/测试文件，README、roadmap、prepared-inputs与execution-inputs同步说明真实范围。

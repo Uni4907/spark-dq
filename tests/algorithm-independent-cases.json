@@ -1,0 +1,28 @@
+{
+  "status": "independent_expected_cases_not_execution_results",
+  "baselineCommit": "61ee99384a32f781efc14389390ba0818bb9d8e3",
+  "iqrContract": {"quantile": "continuous_linear_index_(n-1)*p", "k": "1.5", "predicate": "x < lower OR x > upper", "arithmetic": "exact decimal expected; implementation precision policy must be stated"},
+  "iqrCases": [
+    {"name":"two_outliers", "values":["-100","0","1","2","3","4","5","100"], "q1":"0.75", "q3":"4.25", "iqr":"3.5", "lower":"-4.5", "upper":"9.5", "anomalyIndexes":[0,7]},
+    {"name":"equal_fences_are_normal", "values":["-4.5","0","1","2","3","4","5","9.5"], "q1":"0.75", "q3":"4.25", "iqr":"3.5", "lower":"-4.5", "upper":"9.5", "anomalyIndexes":[]},
+    {"name":"zero_iqr", "values":["0","0","0","0","0","0","0","10"], "q1":"0", "q3":"0", "iqr":"0", "lower":"0", "upper":"0", "anomalyIndexes":[7]},
+    {"name":"constant", "values":["7","7","7","7","7","7","7","7"], "q1":"7", "q3":"7", "iqr":"0", "lower":"7", "upper":"7", "anomalyIndexes":[]},
+    {"name":"large_decimal_precision_probe", "values":["9007199254740992","9007199254740993","9007199254740994","9007199254740995","9007199254740996","9007199254740997","9007199254740998","9007199254741092"], "q1":"9007199254740993.75", "q3":"9007199254740997.25", "iqr":"3.5", "lower":"9007199254740988.5", "upper":"9007199254741002.5", "anomalyIndexes":[7], "alternativeAcceptance":"Explicitly reject or skip out-of-domain values per documented rule contract; silent rounding claimed as exact is unacceptable"}
+  ],
+  "fdContract": {"x":["x1","x2"],"y":["y1","y2"],"blankPolicy":"skip row if any participating field is null, empty or ordinary spaces", "anomaly":"all eligible rows in X groups with more than one distinct Y tuple"},
+  "fdRows": [
+    {"id":"r1","x1":"A","x2":"1","y1":"多数","y2":"x"},
+    {"id":"r2","x1":"A","x2":"1","y1":"多数","y2":"x"},
+    {"id":"r3","x1":"A","x2":"1","y1":"少数","y2":"x"},
+    {"id":"r4","x1":"B","x2":"1","y1":"同值","y2":"x"},
+    {"id":"r5","x1":"B","x2":"1","y1":"同值","y2":"x"},
+    {"id":"r6","x1":"a|b","x2":"c","y1":"1","y2":"x"},
+    {"id":"r7","x1":"a","x2":"b|c","y1":"2","y2":"x"},
+    {"id":"r8","x1":"C","x2":"1","y1":"a|b","y2":"c"},
+    {"id":"r9","x1":"C","x2":"1","y1":"a","y2":"b|c"},
+    {"id":"r10","x1":null,"x2":"1","y1":"空","y2":"x"},
+    {"id":"r11","x1":"A","x2":"1","y1":" ","y2":"x"}
+  ],
+  "fdExpected": {"totalRows":11,"checkedRows":9,"skippedRows":2,"checkedGroups":5,"conflictGroups":2,"conflictRows":5,"anomalyIds":["r1","r2","r3","r8","r9"]},
+  "labelWarning": "r1/r2 are conflict participants even if only r3 was synthetically corrupted; corruption-origin labels and FD participation labels are different experiments"
+}

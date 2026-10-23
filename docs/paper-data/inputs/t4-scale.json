@@ -1,0 +1,686 @@
+{
+  "ok": true,
+  "scope": "Single physical host; offline entry only; no product limit increase or cross-host speedup claim",
+  "groups": [
+    {
+      "rows": 200000,
+      "inputBytes": 11836067,
+      "mode": "local",
+      "formalMeasurements": 3,
+      "warmup": 1,
+      "medianWallSeconds": 21.99459765399979,
+      "minWallSeconds": 21.682306596000217,
+      "maxWallSeconds": 23.095962318000147
+    },
+    {
+      "rows": 200000,
+      "inputBytes": 11836067,
+      "mode": "cluster",
+      "formalMeasurements": 3,
+      "warmup": 1,
+      "medianWallSeconds": 66.41244042200015,
+      "minWallSeconds": 66.38269771500018,
+      "maxWallSeconds": 67.38292933899993
+    },
+    {
+      "rows": 1000000,
+      "inputBytes": 60728899,
+      "mode": "local",
+      "formalMeasurements": 3,
+      "warmup": 1,
+      "medianWallSeconds": 26.853220857999986,
+      "minWallSeconds": 26.290214449999894,
+      "maxWallSeconds": 26.856236263000028
+    },
+    {
+      "rows": 1000000,
+      "inputBytes": 60728899,
+      "mode": "cluster",
+      "formalMeasurements": 3,
+      "warmup": 1,
+      "medianWallSeconds": 65.43180830100027,
+      "minWallSeconds": 64.95794230800038,
+      "maxWallSeconds": 70.27344019800012
+    },
+    {
+      "rows": 5000000,
+      "inputBytes": 310421117,
+      "mode": "local",
+      "formalMeasurements": 3,
+      "warmup": 1,
+      "medianWallSeconds": 61.58806320599979,
+      "minWallSeconds": 61.31308803100001,
+      "maxWallSeconds": 61.69568594699922
+    },
+    {
+      "rows": 5000000,
+      "inputBytes": 310421117,
+      "mode": "cluster",
+      "formalMeasurements": 3,
+      "warmup": 1,
+      "medianWallSeconds": 106.84386800099946,
+      "minWallSeconds": 104.9369611760003,
+      "maxWallSeconds": 109.23803845199927
+    }
+  ],
+  "failures": [],
+  "maximumVerifiedRows": 5000000,
+  "exceeded20MiB": true,
+  "totalSeconds": 1809.6977498210003,
+  "allOwnedContainersStopped": true,
+  "networksAndVolumesRetained": true,
+  "derivedGroups": [
+    {
+      "rows": 200000,
+      "inputBytes": 11836067,
+      "mode": "local",
+      "formalMeasurements": 3,
+      "warmup": 1,
+      "medianWallSeconds": 21.99459765399979,
+      "minWallSeconds": 21.682306596000217,
+      "maxWallSeconds": 23.095962318000147,
+      "inputCacheCountCompositeMs": {
+        "median": 2986,
+        "minimum": 2803,
+        "maximum": 3480
+      },
+      "sampledCpuSecondsLowerBound": {
+        "median": 42.140775,
+        "minimum": 41.091553,
+        "maximum": 44.057921
+      },
+      "sampledAggregateMemoryPeakMiB": {
+        "median": 1090.30078125,
+        "minimum": 1081.62109375,
+        "maximum": 1107.01171875
+      },
+      "verificationAndSortSeconds": {
+        "median": 0.6613312370000131,
+        "minimum": 0.6511386829997718,
+        "maximum": 0.6904253689999678
+      },
+      "rules": {
+        "iqr": {
+          "algorithmMs": {
+            "median": 6345,
+            "minimum": 5855,
+            "maximum": 6512
+          },
+          "anomalyWriteMs": {
+            "median": 1087,
+            "minimum": 1004,
+            "maximum": 1211
+          }
+        },
+        "fd": {
+          "algorithmMs": {
+            "median": 3300,
+            "minimum": 3239,
+            "maximum": 3748
+          },
+          "anomalyWriteMs": {
+            "median": 1298,
+            "minimum": 1272,
+            "maximum": 1311
+          }
+        }
+      },
+      "shuffleReadBytes": {
+        "median": 8373912,
+        "minimum": 8373912,
+        "maximum": 8373912
+      },
+      "shuffleWriteBytes": {
+        "median": 7925206,
+        "minimum": 7925206,
+        "maximum": 7925206
+      },
+      "Disk Bytes Spilled": {
+        "median": 0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "Memory Bytes Spilled": {
+        "median": 0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "Executor Run Time": {
+        "median": 17985,
+        "minimum": 17161,
+        "maximum": 18357
+      },
+      "Executor CPU Time": {
+        "median": 11571270115,
+        "minimum": 10338835672,
+        "maximum": 11583387183
+      },
+      "JVM GC Time": {
+        "median": 469,
+        "minimum": 418,
+        "maximum": 518
+      },
+      "eventOutputBytes": {
+        "median": 7888034,
+        "minimum": 7888034,
+        "maximum": 7888034
+      },
+      "eventInputBytes": {
+        "median": 81332275,
+        "minimum": 81332275,
+        "maximum": 81332275
+      }
+    },
+    {
+      "rows": 200000,
+      "inputBytes": 11836067,
+      "mode": "cluster",
+      "formalMeasurements": 3,
+      "warmup": 1,
+      "medianWallSeconds": 66.41244042200015,
+      "minWallSeconds": 66.38269771500018,
+      "maxWallSeconds": 67.38292933899993,
+      "inputCacheCountCompositeMs": {
+        "median": 8429,
+        "minimum": 8389,
+        "maximum": 8830
+      },
+      "sampledCpuSecondsLowerBound": {
+        "median": 70.856023,
+        "minimum": 70.388701,
+        "maximum": 72.614118
+      },
+      "sampledAggregateMemoryPeakMiB": {
+        "median": 1671.1484375,
+        "minimum": 1629.99609375,
+        "maximum": 1673.8671875
+      },
+      "verificationAndSortSeconds": {
+        "median": 0.6752748389999397,
+        "minimum": 0.6460212900001352,
+        "maximum": 0.6995866709999063
+      },
+      "rules": {
+        "iqr": {
+          "algorithmMs": {
+            "median": 17619,
+            "minimum": 17120,
+            "maximum": 17856
+          },
+          "anomalyWriteMs": {
+            "median": 2203,
+            "minimum": 2197,
+            "maximum": 2213
+          }
+        },
+        "fd": {
+          "algorithmMs": {
+            "median": 9311,
+            "minimum": 8984,
+            "maximum": 9505
+          },
+          "anomalyWriteMs": {
+            "median": 2661,
+            "minimum": 2654,
+            "maximum": 2947
+          }
+        }
+      },
+      "shuffleReadBytes": {
+        "median": 8373912,
+        "minimum": 8373616,
+        "maximum": 8373912
+      },
+      "shuffleWriteBytes": {
+        "median": 7925206,
+        "minimum": 7924910,
+        "maximum": 7925206
+      },
+      "Disk Bytes Spilled": {
+        "median": 0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "Memory Bytes Spilled": {
+        "median": 0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "Executor Run Time": {
+        "median": 32398,
+        "minimum": 31696,
+        "maximum": 32983
+      },
+      "Executor CPU Time": {
+        "median": 10052180880,
+        "minimum": 10016469099,
+        "maximum": 10435290307
+      },
+      "JVM GC Time": {
+        "median": 1888,
+        "minimum": 1727,
+        "maximum": 2014
+      },
+      "eventOutputBytes": {
+        "median": 7888034,
+        "minimum": 7888034,
+        "maximum": 7888034
+      },
+      "eventInputBytes": {
+        "median": 81284062,
+        "minimum": 81280158,
+        "maximum": 81284988
+      }
+    },
+    {
+      "rows": 1000000,
+      "inputBytes": 60728899,
+      "mode": "local",
+      "formalMeasurements": 3,
+      "warmup": 1,
+      "medianWallSeconds": 26.853220857999986,
+      "minWallSeconds": 26.290214449999894,
+      "maxWallSeconds": 26.856236263000028,
+      "inputCacheCountCompositeMs": {
+        "median": 4299,
+        "minimum": 4074,
+        "maximum": 4508
+      },
+      "sampledCpuSecondsLowerBound": {
+        "median": 51.221783,
+        "minimum": 50.278274,
+        "maximum": 51.414963
+      },
+      "sampledAggregateMemoryPeakMiB": {
+        "median": 1355.5703125,
+        "minimum": 1349.1015625,
+        "maximum": 1447.77734375
+      },
+      "verificationAndSortSeconds": {
+        "median": 2.4884197000001222,
+        "minimum": 2.4696364709998306,
+        "maximum": 2.5162913129997833
+      },
+      "rules": {
+        "iqr": {
+          "algorithmMs": {
+            "median": 8601,
+            "minimum": 8084,
+            "maximum": 8775
+          },
+          "anomalyWriteMs": {
+            "median": 1132,
+            "minimum": 1095,
+            "maximum": 1383
+          }
+        },
+        "fd": {
+          "algorithmMs": {
+            "median": 4122,
+            "minimum": 4028,
+            "maximum": 4149
+          },
+          "anomalyWriteMs": {
+            "median": 3196,
+            "minimum": 3180,
+            "maximum": 3577
+          }
+        }
+      },
+      "shuffleReadBytes": {
+        "median": 67584856,
+        "minimum": 67584856,
+        "maximum": 67584856
+      },
+      "shuffleWriteBytes": {
+        "median": 65439440,
+        "minimum": 65439440,
+        "maximum": 65439440
+      },
+      "Disk Bytes Spilled": {
+        "median": 0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "Memory Bytes Spilled": {
+        "median": 0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "Executor Run Time": {
+        "median": 31851,
+        "minimum": 30367,
+        "maximum": 32177
+      },
+      "Executor CPU Time": {
+        "median": 21821970054,
+        "minimum": 21145520839,
+        "maximum": 21894908212
+      },
+      "JVM GC Time": {
+        "median": 678,
+        "minimum": 445,
+        "maximum": 693
+      },
+      "eventOutputBytes": {
+        "median": 40014756,
+        "minimum": 40014756,
+        "maximum": 40014756
+      },
+      "eventInputBytes": {
+        "median": 424964579,
+        "minimum": 424964579,
+        "maximum": 424964579
+      }
+    },
+    {
+      "rows": 1000000,
+      "inputBytes": 60728899,
+      "mode": "cluster",
+      "formalMeasurements": 3,
+      "warmup": 1,
+      "medianWallSeconds": 65.43180830100027,
+      "minWallSeconds": 64.95794230800038,
+      "maxWallSeconds": 70.27344019800012,
+      "inputCacheCountCompositeMs": {
+        "median": 9945,
+        "minimum": 8986,
+        "maximum": 10521
+      },
+      "sampledCpuSecondsLowerBound": {
+        "median": 72.001244,
+        "minimum": 70.987375,
+        "maximum": 76.360749
+      },
+      "sampledAggregateMemoryPeakMiB": {
+        "median": 2162.3203125,
+        "minimum": 2151.69140625,
+        "maximum": 2245.75
+      },
+      "verificationAndSortSeconds": {
+        "median": 2.4782615279996207,
+        "minimum": 2.4360891070000434,
+        "maximum": 2.49096412300014
+      },
+      "rules": {
+        "iqr": {
+          "algorithmMs": {
+            "median": 18967,
+            "minimum": 18479,
+            "maximum": 19085
+          },
+          "anomalyWriteMs": {
+            "median": 2307,
+            "minimum": 2181,
+            "maximum": 2316
+          }
+        },
+        "fd": {
+          "algorithmMs": {
+            "median": 9086,
+            "minimum": 8501,
+            "maximum": 9227
+          },
+          "anomalyWriteMs": {
+            "median": 5641,
+            "minimum": 5469,
+            "maximum": 6054
+          }
+        }
+      },
+      "shuffleReadBytes": {
+        "median": 67584502,
+        "minimum": 67584502,
+        "maximum": 67585642
+      },
+      "shuffleWriteBytes": {
+        "median": 65439086,
+        "minimum": 65439086,
+        "maximum": 65440226
+      },
+      "Disk Bytes Spilled": {
+        "median": 0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "Memory Bytes Spilled": {
+        "median": 0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "Executor Run Time": {
+        "median": 48173,
+        "minimum": 46910,
+        "maximum": 49608
+      },
+      "Executor CPU Time": {
+        "median": 17823558517,
+        "minimum": 17308849175,
+        "maximum": 18112186453
+      },
+      "JVM GC Time": {
+        "median": 2156,
+        "minimum": 1859,
+        "maximum": 2226
+      },
+      "eventOutputBytes": {
+        "median": 40014756,
+        "minimum": 40014756,
+        "maximum": 40014756
+      },
+      "eventInputBytes": {
+        "median": 424784659,
+        "minimum": 424768500,
+        "maximum": 424801217
+      }
+    },
+    {
+      "rows": 5000000,
+      "inputBytes": 310421117,
+      "mode": "local",
+      "formalMeasurements": 3,
+      "warmup": 1,
+      "medianWallSeconds": 61.58806320599979,
+      "minWallSeconds": 61.31308803100001,
+      "maxWallSeconds": 61.69568594699922,
+      "inputCacheCountCompositeMs": {
+        "median": 13589,
+        "minimum": 13371,
+        "maximum": 13750
+      },
+      "sampledCpuSecondsLowerBound": {
+        "median": 112.552143,
+        "minimum": 112.525581,
+        "maximum": 112.692375
+      },
+      "sampledAggregateMemoryPeakMiB": {
+        "median": 2923.8515625,
+        "minimum": 2872.92578125,
+        "maximum": 2977.625
+      },
+      "verificationAndSortSeconds": {
+        "median": 12.483789995000734,
+        "minimum": 12.367327301999467,
+        "maximum": 12.598648035000224
+      },
+      "rules": {
+        "iqr": {
+          "algorithmMs": {
+            "median": 19898,
+            "minimum": 19147,
+            "maximum": 20000
+          },
+          "anomalyWriteMs": {
+            "median": 2932,
+            "minimum": 2691,
+            "maximum": 2968
+          }
+        },
+        "fd": {
+          "algorithmMs": {
+            "median": 10813,
+            "minimum": 10374,
+            "maximum": 11125
+          },
+          "anomalyWriteMs": {
+            "median": 9321,
+            "minimum": 9104,
+            "maximum": 9591
+          }
+        }
+      },
+      "shuffleReadBytes": {
+        "median": 407744052,
+        "minimum": 407744052,
+        "maximum": 407744052
+      },
+      "shuffleWriteBytes": {
+        "median": 397022536,
+        "minimum": 397022536,
+        "maximum": 397022536
+      },
+      "Disk Bytes Spilled": {
+        "median": 0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "Memory Bytes Spilled": {
+        "median": 0,
+        "minimum": 0,
+        "maximum": 0
+      },
+      "Executor Run Time": {
+        "median": 91666,
+        "minimum": 90747,
+        "maximum": 91754
+      },
+      "Executor CPU Time": {
+        "median": 74511984280,
+        "minimum": 73980366933,
+        "maximum": 75925716272
+      },
+      "JVM GC Time": {
+        "median": 1451,
+        "minimum": 1352,
+        "maximum": 1610
+      },
+      "eventOutputBytes": {
+        "median": 202582758,
+        "minimum": 202582758,
+        "maximum": 202582758
+      },
+      "eventInputBytes": {
+        "median": 2222449341,
+        "minimum": 2222449341,
+        "maximum": 2222449341
+      }
+    },
+    {
+      "rows": 5000000,
+      "inputBytes": 310421117,
+      "mode": "cluster",
+      "formalMeasurements": 3,
+      "warmup": 1,
+      "medianWallSeconds": 106.84386800099946,
+      "minWallSeconds": 104.9369611760003,
+      "maxWallSeconds": 109.23803845199927,
+      "inputCacheCountCompositeMs": {
+        "median": 20180,
+        "minimum": 20123,
+        "maximum": 21034
+      },
+      "sampledCpuSecondsLowerBound": {
+        "median": 122.494258,
+        "minimum": 121.943097,
+        "maximum": 122.892516
+      },
+      "sampledAggregateMemoryPeakMiB": {
+        "median": 3560.28125,
+        "minimum": 3525.671875,
+        "maximum": 3635.30859375
+      },
+      "verificationAndSortSeconds": {
+        "median": 12.577760028999364,
+        "minimum": 12.553757300999678,
+        "maximum": 12.775452247999965
+      },
+      "rules": {
+        "iqr": {
+          "algorithmMs": {
+            "median": 30943,
+            "minimum": 30596,
+            "maximum": 31982
+          },
+          "anomalyWriteMs": {
+            "median": 4183,
+            "minimum": 4059,
+            "maximum": 4193
+          }
+        },
+        "fd": {
+          "algorithmMs": {
+            "median": 17193,
+            "minimum": 17075,
+            "maximum": 17539
+          },
+          "anomalyWriteMs": {
+            "median": 13552,
+            "minimum": 12578,
+            "maximum": 14477
+          }
+        }
+      },
+      "shuffleReadBytes": {
+        "median": 407742583,
+        "minimum": 407742388,
+        "maximum": 407742583
+      },
+      "shuffleWriteBytes": {
+        "median": 397021067,
+        "minimum": 397020872,
+        "maximum": 397021067
+      },
+      "Disk Bytes Spilled": {
+        "median": 131997422,
+        "minimum": 129826262,
+        "maximum": 133358503
+      },
+      "Memory Bytes Spilled": {
+        "median": 1090519040,
+        "minimum": 1090519040,
+        "maximum": 1107296256
+      },
+      "Executor Run Time": {
+        "median": 119355,
+        "minimum": 118542,
+        "maximum": 120618
+      },
+      "Executor CPU Time": {
+        "median": 63015321519,
+        "minimum": 62811132977,
+        "maximum": 63194922545
+      },
+      "JVM GC Time": {
+        "median": 3041,
+        "minimum": 2931,
+        "maximum": 3290
+      },
+      "eventOutputBytes": {
+        "median": 202582758,
+        "minimum": 202582758,
+        "maximum": 202582758
+      },
+      "eventInputBytes": {
+        "median": 2221876693,
+        "minimum": 2221832810,
+        "maximum": 2221999490
+      }
+    }
+  ],
+  "notes": [
+    "Wall seconds include container/JVM startup. Algorithm and anomaly-write milliseconds come from Engine actions; write time may include upstream recomputation, not only I/O.",
+    "Cache/count composite includes input reading, cache materialization and counting; it is not pure cache cost. SQL plans/stages provide sorting, Exchange and cache context; overlapping plan categories are not summed.",
+    "Cgroup CPU and endpoint I/O are lower-bound observations; memory is a sampled concurrent aggregate, not an exact peak.",
+    "Local measurements exclude idle cluster daemons; cluster measurements include Driver/Master/Workers. Workload CPU quotas sum to 2 in each mode; cluster Master adds 0.5."
+  ]
+}

@@ -1,0 +1,41 @@
+name: sparkdq-public
+services:
+  mysql:
+    image: mysql:8.4.8@sha256:2952e3be7807f06fc18de50b3ea1a632d5c70d63482ff7d7376fe3aa8999babf
+    environment:
+      MYSQL_DATABASE: sparkdq
+      MYSQL_USER: sparkdq
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?generate .env first}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?generate .env first}
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=$$MYSQL_PASSWORD mysql -u sparkdq -D sparkdq -e 'SELECT 1' >/dev/null"]
+      interval: 5s
+      timeout: 5s
+      retries: 40
+  backend:
+    build:
+      context: .
+      dockerfile: infrastructure/public-backend.Dockerfile
+    environment:
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      SPARK_LOCAL_IP: 127.0.0.1
+    ports:
+      - "127.0.0.1:${API_PORT:-18090}:8080"
+    volumes:
+      - files:/data
+    depends_on:
+      mysql:
+        condition: service_healthy
+  frontend:
+    build:
+      context: .
+      dockerfile: infrastructure/frontend.Dockerfile
+    ports:
+      - "127.0.0.1:${WEB_PORT:-15180}:5173"
+    depends_on:
+      - backend
+volumes:
+  mysql-data:
+  files:

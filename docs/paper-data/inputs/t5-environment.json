@@ -1,0 +1,16 @@
+{
+  "imageId": "sha256:e8a6dbfbf9ce8a11943e4d1eeb880e12749f1dd09dce918daead207a16418156",
+  "engineJarSha256": "d9aeac665320d1158eb830ff8a3eaddb4c8594ebddfa97a78b9dc9329495b1a6",
+  "rows": 1000,
+  "rules": 18,
+  "seeds": [
+    20261021,
+    20261022,
+    20261023
+  ],
+  "cpuQuota": 2,
+  "memoryBytes": 2147483648,
+  "heapMiB": 1024,
+  "execution": "local[2]",
+  "scope": "Fixed small synthetic recognition-effect cases, independent from scale experiment; no general accuracy claim"
+}

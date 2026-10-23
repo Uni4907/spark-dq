@@ -1,0 +1,101 @@
+{
+  "dataset": "UCI Bank Marketing (legacy bank-full.csv)",
+  "authors": [
+    "S. Moro",
+    "P. Rita",
+    "P. Cortez"
+  ],
+  "doi": "10.24432/C5K306",
+  "officialPage": "https://archive.ics.uci.edu/dataset/222/bank+marketing",
+  "downloadUrl": "https://archive.ics.uci.edu/static/public/222/bank%2Bmarketing.zip",
+  "acquiredUtc": "2026-10-21T14:12:37Z",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceRows": 45211,
+  "originalColumns": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "contact",
+    "day",
+    "month",
+    "duration",
+    "campaign",
+    "pdays",
+    "previous",
+    "poutcome",
+    "y"
+  ],
+  "sourceFiles": {
+    "bank.zip": {
+      "bytes": 579043,
+      "sha256": "99d7e8eb12401ed278b793984423915411ea8df099e1795f9fefe254f513fe5e"
+    },
+    "bank-names.txt": {
+      "bytes": 3864,
+      "sha256": "3899a77082573ed676a7dfce3765a5307915c7f11b1fe2f6f55fd3c5467c12f7"
+    },
+    "bank-marketing.zip": {
+      "bytes": 1023843,
+      "sha256": "e0bf5f5de5b846e2f18e9d90606637267d46dfa260e0f17bb12e605db5efbeb4"
+    },
+    "bank-full.csv": {
+      "bytes": 4610348,
+      "sha256": "d1513ec63b385506f7cfce9f2c5caa9fe99e7ba4e8c3fa264b3aaf0f849ed32d"
+    }
+  },
+  "transformations": [
+    "Semicolon UTF-8 CSV -> quoted comma UTF-8 CRLF CSV; original field text and row order preserved",
+    "Added row_id from zero-based source line index; NOT an original customer identifier",
+    "Added dq_month_season as explicit month->season test mapping; NOT a discovered business FD",
+    "Original unknown category text retained; subscription y is NOT a data-quality truth label"
+  ],
+  "qualityTruth": "No trusted real-world quality labels. Precision/Recall/F1 concern controlled injections; non-injected flags are not established business errors.",
+  "injectionCounts": {
+    "MISSING": 60,
+    "IQR": 40,
+    "FD": 24,
+    "DUPLICATE_INSERTION": 20
+  },
+  "seasonMapping": {
+    "dec": "winter",
+    "jan": "winter",
+    "feb": "winter",
+    "mar": "spring",
+    "apr": "spring",
+    "may": "spring",
+    "jun": "summer",
+    "jul": "summer",
+    "aug": "summer",
+    "sep": "autumn",
+    "oct": "autumn",
+    "nov": "autumn"
+  },
+  "governance": "Fill the 60 injected blank ages with chosen test constant40 and deduplicate row_id; does not correct999 ages or FD conflicts",
+  "columns": [
+    "row_id",
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "contact",
+    "day",
+    "month",
+    "duration",
+    "campaign",
+    "pdays",
+    "previous",
+    "poutcome",
+    "y",
+    "dq_month_season"
+  ]
+}

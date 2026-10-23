@@ -1,0 +1,13 @@
+flowchart TB
+ ROOT[SparkDQ] --> D[数据接入]
+ ROOT --> R[规则与任务]
+ ROOT --> G[治理与复检]
+ ROOT --> O[结果与运维]
+ D --> CSV[CSV / 分片 / Parquet]
+ D --> SRC[MySQL快照 / 受控文件 / Hive导出快照]
+ R --> RULE[七类规则 / 模板版本 / 冻结快照]
+ R --> LIFE[排队 / 状态 / 取消 / 恢复]
+ G --> TRANS[标准化 / 映射 / 填充 / 按规则去缺失]
+ G --> VER[业务键去重 / 独立版本 / 原规则复检]
+ O --> REPORT[异常预览 / 指标 / 版本对比 / 离线报告]
+ O --> OPS[维护备份 / 指纹审计 / 新卷恢复]

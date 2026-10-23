@@ -1,0 +1,15 @@
+flowchart TB
+ B[浏览器 Vue3 / ECharts] --> A[Spring Boot REST API]
+ A --> V[输入验证 / 白名单 / 维护门禁]
+ V --> Q[单任务执行器 + 最多8排队]
+ A <--> M[(MySQL 元数据库)]
+ Q --> S[Spark 3.5.8 Engine]
+ S --> L[local 本机计算]
+ S -.功能兼容已验证.-> C[同机 Master + 双 Worker]
+ A <--> F[(不可变CSV / 输入副本 / 异常 / 审计文件)]
+ S <--> F
+ A --> R[离线HTML / JSON报告]
+ X[只读业务MySQL白名单] --> I[有界一致快照]
+ I --> F
+ H[真实Hive Catalog / 嵌入式Derby] --> E[管理员固定表有界导出]
+ E --> V

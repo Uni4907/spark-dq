@@ -1,0 +1,48 @@
+erDiagram
+ datasets ||--o{ tasks : input
+ tasks ||--o{ rules : defines
+ rules ||--o| results : result
+ rules ||--o| rule_parameters : parameters
+ tasks ||--o| task_snapshots : freezes
+ tasks |o--o{ task_snapshots : parent_task
+ tasks ||--o| governance_runs : governs
+ tasks ||--o{ governance_runs : source_task
+ datasets |o--o{ governance_runs : output
+ datasets ||--o| dataset_versions : version
+ datasets ||--o{ dataset_versions : parent
+ tasks ||--o| dataset_versions : generates
+ tasks ||--o| governance_audits : operation_audit
+ rule_template_heads ||--|{ rule_template_versions : revisions
+ rule_template_versions ||--o{ task_template_refs : freezes_revision
+ tasks ||--o| task_template_refs : template_ref
+ datasets |o--o{ dataset_imports : registered_snapshot
+ dataset_imports |o--o{ dataset_imports : retry_parent
+ datasets {
+  string id PK
+  string sha256
+  bigint row_count
+  json source_manifest_json
+ }
+ tasks {
+  string id PK
+  string dataset_id FK
+  string status
+ }
+ results {
+  string id PK
+  string rule_id FK
+  json metrics_json
+  string anomaly_path
+ }
+ task_snapshots {
+  string task_id PK
+  string input_sha256
+  json rules_json
+  json execution_plan_json
+ }
+ dataset_imports {
+  string id PK
+  string request_key UK
+  string source_kind
+  string dataset_id FK
+ }
