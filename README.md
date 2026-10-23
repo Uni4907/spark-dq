@@ -113,9 +113,9 @@ docker compose start
 
 ## 真实界面
 
-以下截图来自本次独立空库部署及合成数据演示，与本候选前端一致，没有使用正式业务数据。
+工作台截图来自历史验收环境，用于展示桌面布局；其中数据集与任务数量属于历史环境，不代表新部署后的初始状态。下方治理报告来自本次独立空库部署及合成数据演示。
 
-![实际工作台](docs/screenshots/overview.jpg)
+![历史验收工作台（桌面布局）](docs/screenshots/overview-desktop.png)
 
 [实际治理报告长截图](docs/screenshots/governance-report.jpg)展示14行到12行、缺失填充、去重及保留的IQR/FD异常；它不是性能基准。
 
